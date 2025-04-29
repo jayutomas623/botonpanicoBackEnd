@@ -10,12 +10,6 @@ const userModel = dbConnection.define("users", {
   email: {
     type: DataTypes.STRING,
   },
-  phone: {
-    type: DataTypes.INTEGER,
-  },
-  gender: {
-    type: DataTypes.STRING,
-  },
   number_wp: {
     type: DataTypes.INTEGER,
   },
