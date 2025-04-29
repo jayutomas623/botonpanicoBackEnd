@@ -155,7 +155,7 @@ const registerAlert = async (req = Request, res = Response) => {
         // }
         admin
             .messaging()
-            .sendMulticast(message)
+            .sendEachForMulticast(message)
             .then((response) => {
                 console.log(response);
                 return res.json({ msg: "Successfully sent message", message: response });
