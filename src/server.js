@@ -5,7 +5,7 @@ const admin = require("firebase-admin");
 const dbConnectionSql = require("./configdb");
 const fileUpload = require("express-fileupload");
 const { createServer } = require('http');
-const serviceAccount = require("./keys/privaap-2fce9-firebase-adminsdk-ci24s-b7b2200ba8.json");
+const serviceAccount = require("./keys/key.json");
 class Server {
   constructor() {
     this.app = express();

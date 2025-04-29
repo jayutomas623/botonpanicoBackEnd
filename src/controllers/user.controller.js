@@ -28,7 +28,7 @@ const registerUser = async (req = Request, res = Response) => {
     let verificationLink = `código: ${codeg}`;
     console.log(email)
     await transporter.sendMail({
-      from: `"CDD " <${process.env.USERGMAIL}>`, // sender address
+      from: `"tricode " <${process.env.USERGMAIL}>`, // sender address
       to: email,
       subject: "Registro de cuenta", // Subject line
       html: `
@@ -78,7 +78,7 @@ const validateUser = async (req = Request, res = Response) => {
       return res.status(404).json({
         errors: [
           {
-            msg: `No existe ningún jugador con el id ${id}`,
+            msg: `No existe ningún usuario con el id ${id}`,
           }
         ]
 
@@ -143,7 +143,7 @@ const validateUser = async (req = Request, res = Response) => {
     );
     //enviamos correo de bienvenida
     await transporter.sendMail({
-      from: `"CDD " <${process.env.USERGMAIL}>`, // sender address
+      from: `"tricode " <${process.env.USERGMAIL}>`, // sender address
       to: user.email,
       subject: "Bienvenido(a)", // Subject line
       html: `
@@ -165,7 +165,7 @@ const validateUser = async (req = Request, res = Response) => {
     //generar token
     let token = await gerateJWT(user.id);
     res.json({
-      msg: `Bienvenido a PRIVAAP`, token, user: omit(user.toJSON(), ["code",
+      msg: `Bienvenido a Aprecia`, token, user: omit(user.toJSON(), ["code",
         "state",
         "tk_notification",
         "password",
@@ -312,7 +312,7 @@ const sendCodeByChangePassword = async (req = Request, res = Response) => {
     //enviar codigo por correo
     let verificationLink = `código: ${codeg}`;
     await transporter.sendMail({
-      from: `"CDD " <${process.env.USERGMAIL}>`, // sender address
+      from: `"tricode " <${process.env.USERGMAIL}>`, // sender address
       to: user.email,
       subject: "Cambio de contraseña", // Subject line
       html: `
@@ -387,7 +387,7 @@ const validateChangePassword = async (req = Request, res = Response) => {
     const salt = bcryptjs.genSaltSync();
     //enviar confirmación de cambio de contraseña
     await transporter.sendMail({
-      from: `"CDD " <${process.env.USERGMAIL}>`, // sender address
+      from: `"tricode " <${process.env.USERGMAIL}>`, // sender address
       to: user.email,
       subject: "Cambio de contraseña", // Subject line
       html: `

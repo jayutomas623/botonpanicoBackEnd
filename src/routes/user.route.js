@@ -32,11 +32,6 @@ router.post(
     check("last_name", "El nick es obligatorio").not().isEmpty(),
     check("email", "El correo no es válido").isEmail(),
     check("email").custom(emailExists),
-    check("phone", "El teléfono móvil es obligatorio")
-      .not()
-      .isEmpty(),
-    check("phone").custom(phoneExists),
-    check("gender", "El nick es obligatorio").not().isEmpty(),
     validarCampos,
   ],
   registerUser
